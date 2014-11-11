@@ -1,15 +1,22 @@
 Package.describe({
-  name: 'philippspo:wizard',
+  name: 'planifica:wizard',
   summary: "A wizard component for AutoForm.",
-  version: '0.0.1'
-  // git: ' /* Fill me in! */ '
+  version: '0.0.1',
+  git: 'https://github.com/Planifica/meteor-wizard.git'
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.0');
+  api.versionsFrom('METEOR@1.0');
   // api.addFiles('philippspo:wizard.js');
 
-  api.use(['underscore', 'deps', 'templating', 'ui', 'session', 'amplify'], 'client');
+  api.use([
+	'underscore', 
+	'deps', 
+	'templating', 
+	'ui', 
+	'session', 
+	'amplify@1.0.0'
+  ], 'client');
   api.use('aldeed:autoform@4.0.2');
   api.use('aldeed:simple-schema@1.1.0');
   

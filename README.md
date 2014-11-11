@@ -10,10 +10,11 @@ A wizard component for AutoForm.
 
 ## Installation
 
+Compatible with >=1.0
 Install using Meteorite. When in a Meteorite-managed app directory, enter:
 
 ```
-$ mrt add wizard
+$ meteor add planifica:wizard
 ```
 
 ## Example
