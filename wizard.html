@@ -1,0 +1,26 @@
+<template name="wizard">
+  {{#with innerContext ..}}
+  <div id="{{wizard.id}}" class="wizard" data-project-id="{{currentProject._id}}">
+    <div class="steps">
+      <ul>
+      {{#each wizard.steps}}
+        <li class="wizardStep {{activeStepClass id}} {{completeStepClass id}}">
+          {{#if wizard.route}}
+            <span class="badge {{badgeStatus id}}">{{stepNumber id}}</span>
+            {{#if showLink id}}
+              {{title}}
+            {{else}}
+              {{title}}
+            {{/if}}
+          {{else}}
+            {{title}}
+          {{/if}}
+          <span class="chevron"></span>
+          </li>
+      {{/each}}
+      </ul>
+    </div>
+    {{> activeStep}}
+  </div>
+  {{/with}}
+</template>
