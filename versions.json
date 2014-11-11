@@ -2,11 +2,11 @@
   "dependencies": [
     [
       "aldeed:autoform",
-      "3.2.0"
+      "4.0.2"
     ],
     [
       "aldeed:simple-schema",
-      "1.0.0"
+      "1.1.0"
     ],
     [
       "amplify",

@@ -10,11 +10,13 @@ Package.onUse(function(api) {
   // api.addFiles('philippspo:wizard.js');
 
   api.use(['underscore', 'deps', 'templating', 'ui', 'session', 'amplify'], 'client');
-  api.use('aldeed:autoform', 'client');
+  api.use('aldeed:autoform@4.0.2');
+  api.use('aldeed:simple-schema@1.1.0');
   
   api.addFiles([
     'wizard.html',
     'wizard.js',
+    'wizard.css',
     'cache.js'
   ], 'client');
 });
