@@ -1,3 +1,8 @@
+Please use with caution! This package is under development and still needs testing.
+
+This is a fork of the forwarder/meteor-wizard package.
+Styling and helpers for backwards navigation have been added. 
+
 meteor-wizard
 =============
 
