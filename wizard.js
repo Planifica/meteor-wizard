@@ -135,9 +135,9 @@ Wizard.prototype = {
       self._initStep(step);
     });
     
-    // Deps.autorun(function() {
+    Tracker.autorun(function() {
       self._setActiveStep();
-    // });
+    });
   },
 
   _initStep: function(step) {
