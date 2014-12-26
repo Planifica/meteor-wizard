@@ -1,3 +1,6 @@
+Demo here: http://wizard.meteor.com/<br>
+Demo Code here: https://github.com/PhilippSpo/wizard-demo<br>
+<br>
 Please use with caution! This package is under development and still needs testing.
 
 This is a fork of the forwarder/meteor-wizard package.
