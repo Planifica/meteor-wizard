@@ -5,18 +5,33 @@
       <ul>
       {{#each wizard.steps}}
         <li class="wizardStep {{activeStepClass id}} {{completeStepClass id}}">
-          {{#if wizard.route}}
-            <span class="badge {{badgeStatus id}}">{{stepNumber id}}</span>
-            {{#if showLink id}}
-              {{title}}
+          <span class="badge {{badgeStatus id}}">{{stepNumber id}}</span>
+          {{#if xs}}
+            {{#if activeStepClass id}}
+              {{#if wizard.route}}
+                {{#if showLink id}}
+                  {{title}}
+                {{else}}
+                  {{title}}
+                {{/if}}
+              {{else}}
+                {{title}}
+              {{/if}}
+            {{/if}}
+          {{else}}
+            {{#if wizard.route}}
+              {{#if showLink id}}
+                {{title}}
+              {{else}}
+                {{title}}
+              {{/if}}
             {{else}}
               {{title}}
             {{/if}}
-          {{else}}
-            {{title}}
+
           {{/if}}
           <span class="chevron"></span>
-          </li>
+        </li>
       {{/each}}
       </ul>
     </div>

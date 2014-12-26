@@ -4,6 +4,13 @@ var defaultId = '_defaultId';
 Template.wizard.rendered = function() {};
 
 Template.wizard.helpers({
+  xs: function() {
+    console.log($(document).width());
+    if($(document).width() <768){
+      console.log('xs');
+      return true;
+    }
+  },
   innerContext: function(outerContext) {
     var context = this,
       wizard = wizardsById[this.id],
