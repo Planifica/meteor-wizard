@@ -1,7 +1,7 @@
 Package.describe({
   name: 'planifica:wizard',
   summary: "A wizard component for AutoForm.",
-  version: '0.0.2',
+  version: '0.0.3',
   git: 'https://github.com/Planifica/meteor-wizard.git'
 });
 
