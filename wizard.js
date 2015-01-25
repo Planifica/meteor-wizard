@@ -94,9 +94,8 @@ Template.wizard.events({
 
     if (this.wizard.route) {
       // go to clicked step
-      Router.go(this.wizard.route, {
-        step: clickedStep.id
-      });
+      var rp = _.extend(this.wizard.routeParams, {step: clickedStep.id});
+      Router.go(this.wizard.route, rp);
       return;
     }
 
