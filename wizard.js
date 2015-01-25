@@ -115,7 +115,8 @@ var Wizard = function(template) {
   this._dep = new Tracker.Dependency();
   this.template = template;
   this.id = template.data.id;
-  this.route = template.data.route;
+  this.route = template.data.route || {};
+  this.routeParams = template.data.routeParams;
   this.steps = template.data.steps;
   this.completeSteps = [];
   this.editMode = template.data.editMode;
@@ -249,9 +250,8 @@ Wizard.prototype = {
     if (!id) return false;
 
     if (this.route) {
-      Router.go(this.route, {
-        step: id
-      });
+      var rp = _.extend(this.routeParams, {step: id});
+      Router.go(this.route, rp);
     } else {
       this.setStep(id);
     }
