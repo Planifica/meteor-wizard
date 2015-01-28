@@ -117,7 +117,15 @@ Add a route parameter to your wizard instance.
   {{> wizard id="setup-wizard" route="setup" steps=steps}}
 </template>
 ```
-
+If you have parameters already in your url `status/:_id/:step, you'll need to take these extra steps
+```javascript
+  routeParams: function(){
+    return {_id: Router.current().getParams()._id};
+  },
+```
+```html
+{{> wizard id="setup-wizard" route="setupWizardWithId" steps=steps routeParams=routeParams}}
+```
 ## Component reference
 
 wizard
