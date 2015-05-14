@@ -7,25 +7,22 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@1.0');
-  // api.addFiles('philippspo:wizard.js');
-
   api.use([
 	'underscore', 
 	'deps', 
 	'templating', 
 	'ui', 
-	'session', 
-	'amplify@1.0.0'
+	'session',
   ], 'client');
-  api.use('aldeed:autoform@4.0.2');
-  api.use('aldeed:simple-schema@1.2.0', ['client', 'server']);
+  api.use('aldeed:autoform@5.1.2');
+  api.use('aldeed:simple-schema@1.3.3', ['client', 'server']);
+  api.use('u2622:persistent-session@0.3.5');
   api.imply(['aldeed:simple-schema']);
   
   api.addFiles([
     'wizard.html',
     'wizard.js',
-    'wizard.css',
-    'cache.js'
+    'wizard.css'
   ], 'client');
 });
 

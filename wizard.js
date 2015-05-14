@@ -121,11 +121,6 @@ var Wizard = function(template) {
   this._stepsByIndex = [];
   this._stepsById = {};
 
-  this.store = new CacheStore(this.id, {
-    persist: template.data.persist !== false,
-    expires: template.data.expires || null
-  });
-
   this.initialize();
 };
 
@@ -160,13 +155,14 @@ Wizard.prototype = {
     this._stepsById[step.id] = _.extend(step, {
       wizard: self,
       data: function() {
-        return self.store.get(step.id);
+        return Session.get(step.id);
       }
     });
 
     AutoForm.addHooks([step.formId], {
       onSubmit: function(data) {
         if (step.onSubmit) {
+          self.setData(step.id, data);
           step.onSubmit.call(self, data, self.mergedData(), self);
         } else {
           if (!step.customSubmit) {
@@ -208,11 +204,14 @@ Wizard.prototype = {
   },
 
   setData: function(id, data) {
-    this.store.set(id, data);
+    Session.setPersistent(id, data);
   },
 
   clearData: function() {
-    this.store.clear();
+    var self = this;
+    _.each(self._stepsById, function(step, id){
+      Session.clear(id);
+    });
   },
 
   mergedData: function() {
@@ -272,7 +271,6 @@ Wizard.prototype = {
   },
 
   setStep: function(id) {
-
 
     this._activeStepId = id;
     this._dep.changed();
