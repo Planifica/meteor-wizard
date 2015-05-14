@@ -171,7 +171,7 @@ Wizard.prototype = {
         }
         return false;
       }
-    }, true);
+    });
   },
 
   _setActiveStep: function() {
