@@ -93,7 +93,7 @@ Template.wizard.events({
     if (this.wizard.route) {
       // go to clicked step
       var rp = _.extend(this.wizard.routeParams, {step: clickedStep.id});
-      Router.go(this.wizard.route, rp);
+      FlowRouter.go(this.wizard.route, rp);
       return;
     }
 
@@ -175,7 +175,7 @@ Wizard.prototype = {
   },
 
   _setActiveStep: function() {
-    if (this.route && !Router.current()) {
+    if (this.route && !FlowRouter.current()) {
       return;
     }
 
@@ -184,15 +184,13 @@ Wizard.prototype = {
       return this.show(0);
     }
 
-    var current = Router.current();
-
-    if (!current || (current && current.route.getName() != this.route)) return false;
-    var params = current.params,
-      index = _.indexOf(this._stepsByIndex, params.step),
+    if (FlowRouter.getRouteName() != this.route) return false;
+    var stepParam = FlowRouter.getParam('step'),
+      index = _.indexOf(this._stepsByIndex, stepParam),
       previousStep = this.getStep(index - 1);
 
     // initial route or non existing step, redirect to first step
-    if (!params.step || index === -1) {
+    if (!stepParam || index === -1) {
       return this.show(0);
     }
     // invalid step
@@ -200,7 +198,7 @@ Wizard.prototype = {
       return this.show(0);
     }
     // valid
-    this.setStep(params.step);
+    this.setStep(stepParam);
   },
 
   setData: function(id, data) {
@@ -247,7 +245,7 @@ Wizard.prototype = {
 
     if (this.route) {
       var rp = _.extend(this.routeParams, {step: id});
-      Router.go(this.route, rp);
+      FlowRouter.go(this.route, rp);
     } else {
       this.setStep(id);
     }
