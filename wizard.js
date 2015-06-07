@@ -159,6 +159,7 @@ Wizard.prototype = {
       }
     });
 
+    // Called when form does not have a `type` attribute
     AutoForm.addHooks([step.formId], {
       onSubmit: function(data) {
         if (step.onSubmit) {
@@ -184,17 +185,14 @@ Wizard.prototype = {
       return this.show(0);
     }
 
-    if (FlowRouter.getRouteName() != this.route) return false;
+    if (FlowRouter.getRouteName() !== this.route) {
+      return false;
+    }
     var stepParam = FlowRouter.getParam('step'),
-      index = _.indexOf(this._stepsByIndex, stepParam),
-      previousStep = this.getStep(index - 1);
+      index = _.indexOf(this._stepsByIndex, stepParam);
 
     // initial route or non existing step, redirect to first step
     if (!stepParam || index === -1) {
-      return this.show(0);
-    }
-    // invalid step
-    if (index > 0 && previousStep && !previousStep.data() && this.editMode !== true) {
       return this.show(0);
     }
     // valid

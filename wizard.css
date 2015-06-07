@@ -89,7 +89,9 @@
 	border-left: 14px solid #D4E3F5;
 }
 .wizard ul li .badge {
-margin-right: 8px;
+	margin-right: 8px;
+	position: static;
+	min-width: inherit;
 }
 @media(max-width:767px) {
 	.wizard ul li .badge {
