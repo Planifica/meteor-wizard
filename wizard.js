@@ -1,11 +1,14 @@
 var wizardsById = {};
 var defaultId = '_defaultId';
+WizardConfig = {
+  mobileMode: false
+};
 
 Template.wizard.rendered = function() {};
 
 Template.wizard.helpers({
   xs: function() {
-    if($(document).width() <768){
+    if($(document).width() <768 || WizardConfig.mobileMode === true){
       return true;
     }
   },

@@ -21,7 +21,7 @@
 	list-style: none outside none;
 }
 .wizard>.steps>ul li:first-child {
-	padding-left: 20px;
+	padding-left: 10px;
 	border-radius: 4px 0 0 4px;
 }
 @media(max-width:767px) {
@@ -41,7 +41,7 @@
 	position: relative;
 	float: left;
 	height: 46px;
-	padding: 0 20px 0 30px;
+	padding: 0 0 0 20px;
 	margin: 0;
 	font-size: 16px;
 	line-height: 46px;

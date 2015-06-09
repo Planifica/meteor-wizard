@@ -8,22 +8,24 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@1.0');
   api.use([
-	'underscore', 
-	'deps', 
-	'templating', 
-	'ui', 
+	'underscore',
+	'deps',
+	'templating',
+	'ui',
 	'session',
   ], 'client');
   api.use('aldeed:autoform@5.1.2');
   api.use('aldeed:simple-schema@1.3.3', ['client', 'server']);
   api.use('u2622:persistent-session@0.3.5');
   api.imply(['aldeed:simple-schema']);
-  
+
   api.addFiles([
     'wizard.html',
     'wizard.js',
     'wizard.css'
   ], 'client');
+
+  api.export('WizardConfig');
 });
 
 // Package.onTest(function(api) {
